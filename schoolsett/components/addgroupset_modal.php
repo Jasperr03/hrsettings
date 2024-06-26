@@ -5,12 +5,10 @@
 <div class="modal-body">
     <form id="frmaddgroupsett">
         <div class="row g-3 align-items-center">
-            <div class="input-group">
-                <label class="form-label p-2">Group Setting Name:</label>
-                <input id="addgroupname" value="" class="form-control form-control-sm" type="text" required>
-                <label class="form-label p-2">Order No:</label>
-                <input id="addgrouporder" value="" class="form-control form-control-sm" type="number" required>
-            </div>
+                <label class="mt-2">Group Setting Name:</label>
+                <input id="addgroupname" value="" class="form-control form-control-sm mt-0" type="text" required>
+                <label class="mt-2">Order No:</label>
+                <input id="addgrouporder" value="" class="form-control form-control-sm mt-0" type="number" required>
         </div>
     </form>
 </div>

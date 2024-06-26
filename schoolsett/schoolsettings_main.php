@@ -1,6 +1,3 @@
-<?php
-require_once '../../connection.php';
-?>
 
 <!-- Add & Edit Group Setting Modal -->
 <div class="modal fade" id="addgrpsettModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addgrpsettModalLabel" aria-hidden="true">
@@ -42,19 +39,16 @@ require_once '../../connection.php';
         });
     }
 
-    function load_editgroupset_modal() {
-        $.post("registry/schoolsett/components/editgroupset_modal.php", {}, function(data) {
+    function load_editgroupset_modal(grpsetid) {
+        $.post("registry/schoolsett/components/editgroupset_modal.php", {
+            grpsetid:grpsetid,
+        }, function(data) {
             $('#grpsetModalContent').html(data);
             $('#addgrpsettModal').modal('show');
         });
     }
 
     //action
-    $('#frmaddgroupsett').submit(function(e) {
-        e.preventDefault();
-        insert_groupsetting();
-    });
-
     function insert_groupsetting() {
         $.post("registry/schoolsett/actions/insert_groupsetting.php", {
             groupname: $('#addgroupname').val(),
