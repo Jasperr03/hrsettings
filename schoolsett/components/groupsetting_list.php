@@ -12,8 +12,9 @@ $schoolsett->execute();
             <?php foreach ($schoolsett->fetchAll() as $row) : ?>
                 <div class="col-lg-4 col-md-6 col- p-3">
                     <div class="card shadow">
-                        <div id="groupsettcard<?php echo $row['groupsettId']; ?>" class="groupSett card-header bg-primary text-white">
-                            <?php echo $row['groupsetting'] ?>
+                        <div id="groupsettcard<?php echo $row['groupsettId']; ?>" class="groupSett card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <div id="grpsetName"><?php echo $row['groupsetting'] ?></div>
+                            <div><i class="cursor-pointer fa-solid fa-pen-to-square"></i></div>
                         </div>
                         <div class="card-body table-responsive px-2 pt-1">
                             <table id="tblsubsetting" class="table table-sm">
