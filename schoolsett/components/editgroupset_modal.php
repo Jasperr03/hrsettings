@@ -17,6 +17,10 @@ $schoolsett = $schoolsett->fetch();
             <input id="editgroupname<?php echo $grpsetid ?>" value="<?php echo $schoolsett['groupsetting'] ?>" class="form-control form-control-sm mt-0" type="text" required>
             <label class="mt-2">Order No:</label>
             <input id="editgrouporder<?php echo $grpsetid ?>" value="<?php echo $schoolsett['orderNo'] ?>" class="form-control form-control-sm mt-0" type="number" required min="0">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
+            </div>
         </div>
     </form>
 </div>
@@ -25,7 +29,7 @@ $schoolsett = $schoolsett->fetch();
     <button type="submit" form="frmeditgroupsett" class="btn btn-primary btn-sm px-4 rounded">Save Changes</button>
 </div>
 <script>
-    $('#frmeditgroupsett').submit(function (e) { 
+    $('#frmeditgroupsett').submit(function(e) {
         e.preventDefault();
         edit_groupsetting(<?php echo $schoolsett['groupsettId'] ?>)
     });

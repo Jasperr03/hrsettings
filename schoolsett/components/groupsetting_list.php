@@ -1,7 +1,7 @@
 <?php
 require_once '../../../connection.php';
 
-$schoolsett = $connHR->prepare("SELECT * FROM tbl_groupsetting a JOIN tbl_grpstatus b ON b.grpstatusid = a.grpstatusid ORDER BY a.orderNo");
+$schoolsett = $connHR->prepare("SELECT * FROM tbl_groupsetting WHERE grpstatus = 1 ORDER BY orderNo");
 $schoolsett->execute();
 
 ?>
@@ -14,7 +14,6 @@ $schoolsett->execute();
                     <div class="card shadow">
                         <div id="groupsettcard<?php echo $row['groupsettId']; ?>" class="groupSett card-header bg-primary text-white d-flex justify-content-between align-items-center">
                             <div id="grpsetName"><?php echo $row['groupsetting'] ?></div>
-                            <span id="grpstatus" class="badge bg-success"><?php echo $row['groupstatus'] ?></span>
                             <div><i class="cursor-pointer fa-solid fa-pen-to-square" onclick="load_editgroupset_modal(<?php echo $row['groupsettId'] ?>)"></i></div>
                         </div>
                         <div class="card-body table-responsive px-2 pt-1">
@@ -69,7 +68,7 @@ $schoolsett->execute();
                                     <?php endforeach ?>
                                 </tbody>
                             </table>
-                            <button class="btn btn-sm btn-primary" type="button" onclick="toggleAddSubsett(<?php echo $row['groupsettId'] ?>)"><i class="fa fa-plus" aria-hidden="true"></i> Add Settings</button>
+                            <button class="btn btn-sm btn-primary px-4 rounded" type="button" onclick="toggleAddSubsett(<?php echo $row['groupsettId'] ?>)"><i class="fa fa-plus" aria-hidden="true"></i> Add Settings</button>
                             <!--Hidden button For adding Subsetting-->
                             <button id="addsubset_btn" hidden type="submit" form="addsubsettfrm" class="addsubset_btn btn btn-sm px-4 rounded btn-primary">Save SubSet </button>
                         </div>

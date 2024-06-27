@@ -12,7 +12,7 @@
 <div class="row">
     <div class="p-4 pb-0">
         <h5 class="d-inline mb-0">School Settings</h5>
-        <button id="" type="button" class="btn btn-sm btn-primary float-end px-4 rounded" onclick="load_addgroupset_modal()"><i class="fa fa-plus" aria-hidden="true"></i> Add Group Setting</button>
+        <button type="button" class="btn btn-sm btn-primary float-end px-4 rounded" onclick="load_addgroupset_modal()"><i class="fa fa-plus" aria-hidden="true"></i> Add Group Setting</button>
     </div>
 </div>
 <div id="rowgroupsett" class="row">
