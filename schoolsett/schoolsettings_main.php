@@ -1,4 +1,3 @@
-
 <!-- Add & Edit Group Setting Modal -->
 <div class="modal fade" id="addgrpsettModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="addgrpsettModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -41,7 +40,7 @@
 
     function load_editgroupset_modal(grpsetid) {
         $.post("registry/schoolsett/components/editgroupset_modal.php", {
-            grpsetid:grpsetid,
+            grpsetid: grpsetid,
         }, function(data) {
             $('#grpsetModalContent').html(data);
             $('#addgrpsettModal').modal('show');
@@ -60,6 +59,22 @@
                 loadgroupsetting_list();
             } else {
                 alert('insert failed: ' + data)
+            }
+        });
+    }
+
+    function edit_groupsetting(grpsetid) {
+        $.post("registry/schoolsett/actions/update_groupsetting.php", {
+            grpsetid: grpsetid,
+            updategrpname: $('#editgroupname' + grpsetid).val(),
+            updategrporder: $('#editgrouporder' + grpsetid).val(),
+        }, function(data) {
+            if (data == 'success') {
+                alert('Updated successfully');
+                $('#addgrpsettModal').modal('hide');
+                loadgroupsetting_list();
+            } else {
+                alert('update failed: ' + data)
             }
         });
     }

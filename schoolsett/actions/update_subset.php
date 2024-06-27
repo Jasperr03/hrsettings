@@ -1,7 +1,7 @@
-<?php
+<?php 
 require_once '../../../connection.php';
 $setid = $_POST['setid'];
-$updatesetname = $_POST['updatesetname'];
+$updatesetname = $_POST['updatesetname']; 
 $updatevalue = $_POST['updatevalue'];
 $updateremarks = $_POST['updateremarks'];
 $updateorderno = $_POST['updateorderno'];
@@ -9,7 +9,7 @@ $updateorderno = $_POST['updateorderno'];
 try {
     $connHR->beginTransaction();
     $updtsett = $connHR->prepare("UPDATE tblsettings SET settingsName=?, setvalue=?, remarks=?, orderNo=?  WHERE settingsId = ?");
-    $updtsett->execute([$updatesetname, $updatevalue, $updateremarks, $updateorderno, $setid]);
+    $updtsett->execute([$updatesetname, $updatevalue,$updateremarks,$updateorderno,$setid]);
 
     $connHR->commit();
     echo 'success';
@@ -17,3 +17,4 @@ try {
     echo $th;
     $connHR->rollBack(); //undo
 }
+?>
