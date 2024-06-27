@@ -1,0 +1,10 @@
+
+//Join table syntax
+SELECT * 
+from tbl_groupsetting a
+join tbl_grpstatus b on b.grpstatusid = a.grpstatusid 
+order by a.orderNo 
+
+//selecting table syntax
+SELECT * FROM tbl_groupsetting
+order by orderNo 
