@@ -47,6 +47,21 @@
         });
     }
 
+    function archive_grpsetting(grpsetid) {
+       if(confirm('Are you sure you want to archive this setting?')){
+            $.post("registry/schoolsett/actions/update_groupsetting_status.php", {
+                grpsetid: grpsetid,
+            }, function(data) {
+                if (data == 'success') {
+                    alert('Save successfully');
+                    loadgroupsetting_list();
+                } else {
+                    alert(data)
+                }
+            });
+       };
+    }
+
     //action
     function insert_groupsetting() {
         $.post("registry/schoolsett/actions/insert_groupsetting.php", {
